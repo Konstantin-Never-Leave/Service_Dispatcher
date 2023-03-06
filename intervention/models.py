@@ -5,7 +5,8 @@ from machine.models import Machine
 class WorkCase(models.Model):
     case_id = models.AutoField(primary_key=True)
     # REFACTOR (take out blank=True)
-    machine = models.ForeignKey(Machine, on_delete=False, blank=True)
+    case_name = models.CharField(max_length=255)  # to be reviewed
+    machine = models.ForeignKey(Machine, on_delete=models.CASCADE, blank=True)
 #  link to ServiceManager:
     case_created_by = models.CharField(max_length=255)  # to be reviewed
 #  lint to customer
